@@ -12,12 +12,12 @@
   <Overview>The qBittorrent project aims to provide an open-source software alternative to &#xB5;Torrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.</Overview>
   <Category>Downloaders:</Category>
   <WebUI>http://[IP]:[PORT:32785]/</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/beta/templates/zero-qbitttorent.xml</TemplateURL>
+  <TemplateURL>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/templates/zero-qbitttorent.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/icons/qbittorrent-icon.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1613222405</DateInstalled>
+  <DateInstalled>1613223555</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>The qBittorrent project aims to provide an open-source software alternative to &#xB5;Torrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.</Description>
@@ -76,8 +76,8 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Host Port 1" Target="6881" Default="6881" Mode="tcp" Description="Container Port: 6881" Type="Port" Display="always" Required="true" Mask="false">6881</Config>
-  <Config Name="Host Port 2" Target="6881" Default="6881" Mode="udp" Description="Container Port: 6881" Type="Port" Display="always" Required="true" Mask="false">6881</Config>
+  <Config Name="Torrent Port TCP" Target="6881" Default="6881" Mode="tcp" Description="Container Port: 6881" Type="Port" Display="always" Required="true" Mask="false">6881</Config>
+  <Config Name="Torrent Port UDP" Target="6881" Default="6881" Mode="udp" Description="Container Port: 6881" Type="Port" Display="always" Required="true" Mask="false">6881</Config>
   <Config Name="Web UI Port" Target="8080" Default="8080" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="true" Mask="false">32785</Config>
   <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">1000</Config>
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
