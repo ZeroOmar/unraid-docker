@@ -38,7 +38,7 @@
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/appdata/jackett/config</HostDir>
+      <HostDir>/mnt/user/appdata/jackett/config/</HostDir>
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>

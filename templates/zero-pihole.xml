@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>pihole</Name>
+  <Repository>pihole/pihole:latest</Repository>
+  <Registry>https://hub.docker.com/r/pihole/pihole/</Registry>
+  <Network>br0</Network>
+  <MyIP>10.0.0.4</MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://lime-technology.com/forum/index.php?topic=50453.0</Support>
+  <Project/>
+  <Overview>Pi-Hole - let's block those pesky ads!&#xD;
+    This is a template for the official PiHole Docker&#xD;
+    Make sure that you use bridge mode and give PiHole it's own IP address.&#xD;
+    Also, if you set you router to give out the PiHole address to clients,&#xD;
+    make sure that you fixe the unRaid servers dns to point to a real DNS Server.</Overview>
+  <Category>Network:Other Other:</Category>
+  <WebUI>http://[IP]:[PORT:80]/admin</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/templates/zero-pihole.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/icons/pihole-icon.png</Icon>
+  <ExtraParams>--dns=127.0.0.1 --dns=10.0.0.3</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1613250806</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Pi-Hole - let's block those pesky ads!&#xD;
+    This is a template for the official PiHole Docker&#xD;
+    Make sure that you use bridge mode and give PiHole it's own IP address.&#xD;
+    Also, if you set you router to give out the PiHole address to clients,&#xD;
+    make sure that you fixe the unRaid servers dns to point to a real DNS Server.</Description>
+  <Networking>
+    <Mode>br0</Mode>
+    <Publish>
+      <Port>
+        <HostPort>53</HostPort>
+        <ContainerPort>53</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>53</HostPort>
+        <ContainerPort>53</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>67</HostPort>
+        <ContainerPort>67</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>80</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>443</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/pihole/etc/pihole/</HostDir>
+      <ContainerDir>/etc/pihole/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/pihole/etc/dnsmasq.d/</HostDir>
+      <ContainerDir>/etc/dnsmasq.d/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>8.8.8.8</Value>
+      <Name>DNS1</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>8.8.4.4</Value>
+      <Name>DNS2</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>admin</Value>
+      <Name>WEBPASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>true</Value>
+      <Name>CONDITIONAL_FORWARDING</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>10.0.0.3</Value>
+      <Name>CONDITIONAL_FORWARDING_IP</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>home.lan</Value>
+      <Name>CONDITIONAL_FORWARDING_DOMAIN</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Host Port 1" Target="53" Default="53" Mode="tcp" Description="Container Port: 53" Type="Port" Display="always" Required="true" Mask="false">53</Config>
+  <Config Name="Host Port 2" Target="53" Default="53" Mode="udp" Description="Container Port: 53" Type="Port" Display="always" Required="true" Mask="false">53</Config>
+  <Config Name="Host Port 3" Target="67" Default="67" Mode="udp" Description="Container Port: 67" Type="Port" Display="always" Required="true" Mask="false">67</Config>
+  <Config Name="Host Port 4" Target="80" Default="80" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="true" Mask="false">80</Config>
+  <Config Name="Host Port 5" Target="443" Default="443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">443</Config>
+  <Config Name="/etc/pihole/" Target="/etc/pihole/" Default="/mnt/user/appdata/pihole/etc/pihole/" Mode="rw" Description="Container Path: /etc/pihole/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/pihole/etc/pihole/</Config>
+  <Config Name="/etc/dnsmasq.d/" Target="/etc/dnsmasq.d/" Default="/mnt/user/appdata/pihole/etc/dnsmasq.d/" Mode="rw" Description="Container Path: /etc/dnsmasq.d/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/pihole/etc/dnsmasq.d/</Config>
+  <Config Name="DNS1" Target="DNS1" Default="8.8.8.8" Mode="" Description="Container Variable: DNS1" Type="Variable" Display="always" Required="false" Mask="false">8.8.8.8</Config>
+  <Config Name="DNS2" Target="DNS2" Default="8.8.4.4" Mode="" Description="Container Variable: DNS2" Type="Variable" Display="always" Required="false" Mask="false">8.8.4.4</Config>
+  <Config Name="Key 4" Target="WEBPASSWORD" Default="admin" Mode="" Description="Container Variable: WEBPASSWORD" Type="Variable" Display="always" Required="true" Mask="true">admin</Config>
+  <Config Name="CONDITIONAL_FORWARDING" Target="CONDITIONAL_FORWARDING" Default="true" Mode="" Description="Container Variable: CONDITIONAL_FORWARDING" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="CONDITIONAL_FORWARDING_IP" Target="CONDITIONAL_FORWARDING_IP" Default="10.0.0.3" Mode="" Description="Container Variable: CONDITIONAL_FORWARDING_IP" Type="Variable" Display="always" Required="false" Mask="false">10.0.0.3</Config>
+  <Config Name="CONDITIONAL_FORWARDING_DOMAIN" Target="CONDITIONAL_FORWARDING_DOMAIN" Default="local" Mode="" Description="Container Variable: CONDITIONAL_FORWARDING_DOMAIN" Type="Variable" Display="always" Required="false" Mask="false">home.lan</Config>
+</Container>
