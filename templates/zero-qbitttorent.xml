@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>qbittorrent</Name>
+  <Repository>linuxserver/qbittorrent:latest</Repository>
+  <Registry>https://hub.docker.com/r/linuxserver/qbittorrent/</Registry>
+  <Network>br0</Network>
+  <MyIP>10.0.0.201</MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/59191-support-linuxserverio-qbittorrent/</Support>
+  <Project>https://www.qbittorrent.org</Project>
+  <Overview>The qBittorrent project aims to provide an open-source software alternative to &#xB5;Torrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.</Overview>
+  <Category>Downloaders:</Category>
+  <WebUI>http://[IP]:[PORT:32785]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/beta/templates/zero-qbitttorent.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/icons/qbittorrent-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1613222405</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>The qBittorrent project aims to provide an open-source software alternative to &#xB5;Torrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.</Description>
+  <Networking>
+    <Mode>br0</Mode>
+    <Publish>
+      <Port>
+        <HostPort>6881</HostPort>
+        <ContainerPort>6881</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>6881</HostPort>
+        <ContainerPort>6881</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>32785</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/downloads</HostDir>
+      <ContainerDir>/mnt/downloads/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/qbittorrent/config/</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>1000</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>32785</Value>
+      <Name>WEBUI_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>022</Value>
+      <Name>UMASK_SET</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Host Port 1" Target="6881" Default="6881" Mode="tcp" Description="Container Port: 6881" Type="Port" Display="always" Required="true" Mask="false">6881</Config>
+  <Config Name="Host Port 2" Target="6881" Default="6881" Mode="udp" Description="Container Port: 6881" Type="Port" Display="always" Required="true" Mask="false">6881</Config>
+  <Config Name="Web UI Port" Target="8080" Default="8080" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="true" Mask="false">32785</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">1000</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="Downloads" Target="/mnt/downloads/" Default="/mnt/user/downloads" Mode="rw" Description="Container Path: /mnt/downloads/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/downloads</Config>
+  <Config Name="WEBUI_PORT" Target="WEBUI_PORT" Default="" Mode="" Description="Container Variable: WEBUI_PORT" Type="Variable" Display="always" Required="false" Mask="false">32785</Config>
+  <Config Name="UMASK_SET (Optional)" Target="UMASK_SET" Default="022" Mode="" Description="Container Variable: UMASK_SET" Type="Variable" Display="advanced" Required="false" Mask="false">022</Config>
+  <Config Name="AppData Config Path" Target="/config" Default="/mnt/user/appdata/qbittorrent" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/qbittorrent/config/</Config>
+</Container>
