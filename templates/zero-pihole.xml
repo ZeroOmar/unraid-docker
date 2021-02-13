@@ -113,7 +113,7 @@
   <Config Name="/etc/dnsmasq.d/" Target="/etc/dnsmasq.d/" Default="/mnt/user/appdata/pihole/etc/dnsmasq.d/" Mode="rw" Description="Container Path: /etc/dnsmasq.d/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/pihole/etc/dnsmasq.d/</Config>
   <Config Name="DNS1" Target="DNS1" Default="8.8.8.8" Mode="" Description="Container Variable: DNS1" Type="Variable" Display="always" Required="false" Mask="false">8.8.8.8</Config>
   <Config Name="DNS2" Target="DNS2" Default="8.8.4.4" Mode="" Description="Container Variable: DNS2" Type="Variable" Display="always" Required="false" Mask="false">8.8.4.4</Config>
-  <Config Name="Key 4" Target="WEBPASSWORD" Default="admin" Mode="" Description="Container Variable: WEBPASSWORD" Type="Variable" Display="always" Required="true" Mask="true">admin</Config>
+  <Config Name="WEBPASSWORD" Target="WEBPASSWORD" Default="admin" Mode="" Description="Container Variable: WEBPASSWORD" Type="Variable" Display="always" Required="true" Mask="true">admin</Config>
   <Config Name="CONDITIONAL_FORWARDING" Target="CONDITIONAL_FORWARDING" Default="true" Mode="" Description="Container Variable: CONDITIONAL_FORWARDING" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
   <Config Name="CONDITIONAL_FORWARDING_IP" Target="CONDITIONAL_FORWARDING_IP" Default="10.0.0.3" Mode="" Description="Container Variable: CONDITIONAL_FORWARDING_IP" Type="Variable" Display="always" Required="false" Mask="false">10.0.0.3</Config>
   <Config Name="CONDITIONAL_FORWARDING_DOMAIN" Target="CONDITIONAL_FORWARDING_DOMAIN" Default="local" Mode="" Description="Container Variable: CONDITIONAL_FORWARDING_DOMAIN" Type="Variable" Display="always" Required="false" Mask="false">home.lan</Config>
