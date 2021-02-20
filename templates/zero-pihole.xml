@@ -18,7 +18,7 @@
   <WebUI>http://[IP]:[PORT:80]/admin</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/templates/zero-pihole.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/icons/pihole-icon.png</Icon>
-  <ExtraParams>--dns=127.0.0.1 --dns=10.0.0.3</ExtraParams>
+  <ExtraParams>--dns=127.0.0.1 --dns=10.0.0.3 --hostname=pihole-02</ExtraParams>
   <PostArgs/>
   <CPUset/>
   <DateInstalled>1613250806</DateInstalled>
