@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>rsnapshot</Name>
+  <Repository>linuxserver/rsnapshot</Repository>
+  <Registry>https://hub.docker.com/r/linuxserver/rsnapshot/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/97258-support-linuxserverio-rsnapshot/</Support>
+  <Project>https://www.rsnapshot.org/</Project>
+  <Overview>Rsnapshot is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines,&#xD;
+    and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required."</Overview>
+  <Category>Backup: Tools:Utilities</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/templates/zero-rsnapshot.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/icons/rsnapshot.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1614000025</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Rsnapshot is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines,&#xD;
+    and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required."</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/rsnapshot/config</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/rsnapshots/</HostDir>
+      <ContainerDir>/mnt/user/rsnapshots/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/rsnapshot/root/.ssh/</HostDir>
+      <ContainerDir>/root/.ssh/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>1000</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/rsnapshot/config" Mode="rw" Description="Appdata" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/rsnapshot/config</Config>
+  <Config Name="Storage location for snapshots" Target="/mnt/user/rsnapshots/" Default="" Mode="rw" Description="Snapshots" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/rsnapshots/</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">1000</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="root ssh config" Target="/root/.ssh/" Default="" Mode="rw" Description="Container Path: /root/.ssh/config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/rsnapshot/root/.ssh/</Config>
+</Container>
