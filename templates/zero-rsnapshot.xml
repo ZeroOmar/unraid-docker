@@ -9,8 +9,7 @@
   <Privileged>false</Privileged>
   <Support>https://forums.unraid.net/topic/97258-support-linuxserverio-rsnapshot/</Support>
   <Project>https://www.rsnapshot.org/</Project>
-  <Overview>Rsnapshot is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines,&#xD;
-    and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required."</Overview>
+  <Overview>Rsnapshot is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines, and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required."</Overview>
   <Category>Backup: Tools:Utilities</Category>
   <WebUI/>
   <TemplateURL>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/templates/zero-rsnapshot.xml</TemplateURL>
@@ -18,24 +17,23 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1614000025</DateInstalled>
+  <DateInstalled>1614249726</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Description>Rsnapshot is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines,&#xD;
-    and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required."</Description>
+  <Description>Rsnapshot is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines, and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required."</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish/>
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/rsnapshot/config</HostDir>
+      <HostDir>/mnt/user/appdata/rsnapshot/config/</HostDir>
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/rsnapshots/</HostDir>
-      <ContainerDir>/mnt/user/rsnapshots/</ContainerDir>
+      <HostDir>/mnt/user/</HostDir>
+      <ContainerDir>/mnt/user/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
@@ -43,10 +41,15 @@
       <ContainerDir>/root/.ssh/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
+    <Volume>
+      <HostDir>/boot/</HostDir>
+      <ContainerDir>/mnt/boot/</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
   </Data>
   <Environment>
     <Variable>
-      <Value>1000</Value>
+      <Value>99</Value>
       <Name>PUID</Name>
       <Mode/>
     </Variable>
@@ -57,9 +60,10 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/rsnapshot/config" Mode="rw" Description="Appdata" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/rsnapshot/config</Config>
-  <Config Name="Storage location for snapshots" Target="/mnt/user/rsnapshots/" Default="" Mode="rw" Description="Snapshots" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/rsnapshots/</Config>
-  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">1000</Config>
+  <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/rsnapshot" Mode="rw" Description="Appdata" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/rsnapshot/config/</Config>
+  <Config Name="Storage location" Target="/mnt/user/" Default="" Mode="rw" Description="Data" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
   <Config Name="root ssh config" Target="/root/.ssh/" Default="" Mode="rw" Description="Container Path: /root/.ssh/config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/rsnapshot/root/.ssh/</Config>
+  <Config Name="Boot Drive" Target="/mnt/boot/" Default="" Mode="ro" Description="Boot Drive" Type="Path" Display="always" Required="false" Mask="false">/boot/</Config>
 </Container>
