@@ -17,7 +17,7 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1614249726</DateInstalled>
+  <DateInstalled>1614250453</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>Rsnapshot is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines, and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required."</Description>
@@ -43,7 +43,7 @@
     </Volume>
     <Volume>
       <HostDir>/boot/</HostDir>
-      <ContainerDir>/mnt/boot/</ContainerDir>
+      <ContainerDir>/boot/</ContainerDir>
       <Mode>ro</Mode>
     </Volume>
   </Data>
@@ -65,5 +65,5 @@
   <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
   <Config Name="root ssh config" Target="/root/.ssh/" Default="" Mode="rw" Description="Container Path: /root/.ssh/config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/rsnapshot/root/.ssh/</Config>
-  <Config Name="Boot Drive" Target="/mnt/boot/" Default="" Mode="ro" Description="Boot Drive" Type="Path" Display="always" Required="false" Mask="false">/boot/</Config>
+  <Config Name="Boot Drive" Target="/boot/" Default="" Mode="ro" Description="Boot Drive" Type="Path" Display="always" Required="false" Mask="false">/boot/</Config>
 </Container>
