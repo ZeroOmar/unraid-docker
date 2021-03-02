@@ -14,7 +14,7 @@
   <Category>Network:Management Productivity: Tools:</Category>
   <WebUI>http://[IP]:[PORT:9000]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/templates/zero-portainer.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/icons/pihole-icon.png</Icon>
+  <Icon>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/icons/Portainer-logo.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
