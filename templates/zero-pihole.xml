@@ -73,12 +73,12 @@
   </Data>
   <Environment>
     <Variable>
-      <Value>8.8.8.8</Value>
+      <Value>10.0.0.3</Value>
       <Name>DNS1</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>8.8.4.4</Value>
+      <Value>8.8.8.8</Value>
       <Name>DNS2</Name>
       <Mode/>
     </Variable>
@@ -111,8 +111,8 @@
   <Config Name="Host Port 5" Target="443" Default="443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">443</Config>
   <Config Name="/etc/pihole/" Target="/etc/pihole/" Default="/mnt/user/appdata/pihole/etc/pihole/" Mode="rw" Description="Container Path: /etc/pihole/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/pihole/etc/pihole/</Config>
   <Config Name="/etc/dnsmasq.d/" Target="/etc/dnsmasq.d/" Default="/mnt/user/appdata/pihole/etc/dnsmasq.d/" Mode="rw" Description="Container Path: /etc/dnsmasq.d/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/pihole/etc/dnsmasq.d/</Config>
-  <Config Name="DNS1" Target="DNS1" Default="8.8.8.8" Mode="" Description="Container Variable: DNS1" Type="Variable" Display="always" Required="false" Mask="false">8.8.8.8</Config>
-  <Config Name="DNS2" Target="DNS2" Default="8.8.4.4" Mode="" Description="Container Variable: DNS2" Type="Variable" Display="always" Required="false" Mask="false">8.8.4.4</Config>
+  <Config Name="DNS1" Target="DNS1" Default="10.0.0.3" Mode="" Description="Container Variable: DNS1" Type="Variable" Display="always" Required="false" Mask="false">10.0.0.3</Config>
+  <Config Name="DNS2" Target="DNS2" Default="8.8.8.8" Mode="" Description="Container Variable: DNS2" Type="Variable" Display="always" Required="false" Mask="false">8.8.8.8</Config>
   <Config Name="WEBPASSWORD" Target="WEBPASSWORD" Default="admin" Mode="" Description="Container Variable: WEBPASSWORD" Type="Variable" Display="always" Required="true" Mask="true">admin</Config>
   <Config Name="CONDITIONAL_FORWARDING" Target="CONDITIONAL_FORWARDING" Default="true" Mode="" Description="Container Variable: CONDITIONAL_FORWARDING" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
   <Config Name="CONDITIONAL_FORWARDING_IP" Target="CONDITIONAL_FORWARDING_IP" Default="10.0.0.3" Mode="" Description="Container Variable: CONDITIONAL_FORWARDING_IP" Type="Variable" Display="always" Required="false" Mask="false">10.0.0.3</Config>
