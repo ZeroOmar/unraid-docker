@@ -1,0 +1,84 @@
+version: "2.4"
+
+# networks
+networks:
+  net:
+    driver: bridge
+  br0:
+    external: true
+
+# services
+services:
+  # postgres
+  postgres:
+    image: postgres
+    container_name: netbox_postgres
+    hostname: netbox_postgres
+    cpus: 1
+    mem_limit: 500m
+    environment:
+      PGDATA: /var/lib/postgresql/data/netbox
+      POSTGRES_DB: netbox_db
+      POSTGRES_USER: netbox_user
+      POSTGRES_PASSWORD: 3E%5tc7j8sNpJgPzUS8baZCCM%E9HphG
+    networks:
+      - net
+    restart: unless-stopped
+    volumes:
+      - /mnt/user/appdata/netbox/netbox_postgres/data:/var/lib/postgresql/data:rw
+ 
+  # redis
+  redis:
+    image: redis:6-alpine
+    container_name: redis
+    hostname: redis
+    cpus: 1
+    mem_limit: 500m
+    command:
+    - sh
+    - -c # this is to evaluate the $REDIS_PASSWORD from the env
+    - redis-server --appendonly yes --requirepass $$REDIS_PASSWORD ## $$ because of docker-compose
+    environment:
+    - REDIS_PASSWORD=3E%5tc7j8sNpJgPzUS8baZCCM%E9HphG
+    volumes:
+    - /mnt/user/appdata/netbox/netbox_redis/data:/data
+    networks:
+      - net
+
+  # netbox
+  netbox:
+    image: linuxserver/netbox
+    container_name: netbox
+    hostname: netbox
+    cpus: 1
+    mem_limit: 500m
+    depends_on:
+      - redis
+      - postgres
+    environment:
+      - PUID=99
+      - PGID=100
+      - SUPERUSER_NAME=super
+      - SUPERUSER_EMAIL=super@home.lan
+      - SUPERUSER_PASSWORD=KXFh2Ek&gVQaHCxe
+      - ALLOWED_HOST=netbox.home.lan
+#     - BASE_PATH=<BASE_PATH>
+      - DB_NAME=netbox_db
+      - DB_USER=netbox_user
+      - DB_PASSWORD=3E%5tc7j8sNpJgPzUS8baZCCM%E9HphG
+#     - DB_HOST=<DB_HOST>
+#     - DB_PORT=<DB_PORT>
+#     - REDIS_HOST=<REDIS_HOST>
+#     - REDIS_PORT=<REDIS_PORT>
+      - REDIS_PASSWORD=3E%5tc7j8sNpJgPzUS8baZCCM%E9HphG
+      - TZ=Africa/Cairo
+    links:
+      - postgres
+      - redis
+    volumes:
+      - /mnt/user/appdata/netbox/netbox/config:/config
+    networks:
+      net:
+      br0:
+        ipv4_address: 10.0.0.195
+    restart: unless-stopped
