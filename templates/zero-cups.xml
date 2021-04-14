@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>cups</Name>
+  <Repository>olbat/cupsd</Repository>
+  <Registry>https://hub.docker.com/r/olbat/cupsd</Registry>
+  <Network>br0</Network>
+  <MyIP>10.0.0.196</MyIP>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>CUPS print server and printing drivers</Overview>
+  <Category>Productivity: Tools: Status:Beta</Category>
+  <WebUI>http://[IP]:[PORT:631]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/beta/icons/cups-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1615833549</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>CUPS print server and printing drivers</Description>
+  <Networking>
+    <Mode>br0</Mode>
+    <Publish>
+      <Port>
+        <HostPort>631</HostPort>
+        <ContainerPort/>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/var/run/dbus</HostDir>
+      <ContainerDir>/var/run/dbus</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/cups/logs</HostDir>
+      <ContainerDir>/var/log/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/dev/</HostDir>
+      <ContainerDir>/dev/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="/var/run/dbus" Target="/var/run/dbus" Default="" Mode="rw" Description="Container Path: /var/run/dbus" Type="Path" Display="always" Required="true" Mask="false">/var/run/dbus</Config>
+  <Config Name="CUPS Port" Target="" Default="631" Mode="tcp" Description="Container Port: " Type="Port" Display="always" Required="true" Mask="false">631</Config>
+  <Config Name="Logs" Target="/var/log/" Default="" Mode="rw" Description="Container Path: /var/log/" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/cups/logs</Config>
+  <Config Name="Devices" Target="/dev/" Default="" Mode="rw" Description="Container Path: /dev/" Type="Path" Display="always" Required="false" Mask="false">/dev/</Config>
+</Container>
