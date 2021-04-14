@@ -17,10 +17,10 @@
   <WebUI>http://[IP]:[PORT:19999]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/templates/zero-netdata.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/icons/netdata.png</Icon>
-  <ExtraParams>--cap-add SYS_PTRACE --security-opt apparmor=unconfined --log-opt max-size=200m --log-opt max-file=1</ExtraParams>
+  <ExtraParams>--hostname=Z0-NAS-02 --cap-add SYS_PTRACE --security-opt apparmor=unconfined --log-opt max-size=200m --log-opt max-file=1</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1618393644</DateInstalled>
+  <DateInstalled>1618394475</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>[b]Real-time performance monitoring, done right! [/b][br]&amp;amp;#xD;&#xD;
