@@ -4,7 +4,7 @@
   <Repository>pihole/pihole:latest</Repository>
   <Registry>https://hub.docker.com/r/pihole/pihole/</Registry>
   <Network>br0</Network>
-  <MyIP>10.0.0.4</MyIP>
+  <MyIP>10.0.0.7</MyIP>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support>https://lime-technology.com/forum/index.php?topic=50453.0</Support>
@@ -18,10 +18,10 @@
   <WebUI>http://[IP]:[PORT:80]/admin</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/templates/zero-pihole.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/ZeroOmar/unraid-docker/main/icons/pihole-icon.png</Icon>
-  <ExtraParams>--dns=127.0.0.1 --dns=10.0.0.3 --hostname=pihole-02</ExtraParams>
+  <ExtraParams>--dns=127.0.0.1 --dns=8.8.8.8 --hostname=pihole-02</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1613250806</DateInstalled>
+  <DateInstalled>1618759922</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>Pi-Hole - let's block those pesky ads!&#xD;
@@ -73,33 +73,18 @@
   </Data>
   <Environment>
     <Variable>
-      <Value>10.0.0.3</Value>
+      <Value>8.8.8.8</Value>
       <Name>DNS1</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>8.8.8.8</Value>
+      <Value>8.8.4.4</Value>
       <Name>DNS2</Name>
       <Mode/>
     </Variable>
     <Variable>
       <Value>admin</Value>
       <Name>WEBPASSWORD</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>true</Value>
-      <Name>CONDITIONAL_FORWARDING</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>10.0.0.3</Value>
-      <Name>CONDITIONAL_FORWARDING_IP</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>home.lan</Value>
-      <Name>CONDITIONAL_FORWARDING_DOMAIN</Name>
       <Mode/>
     </Variable>
   </Environment>
@@ -111,10 +96,7 @@
   <Config Name="Host Port 5" Target="443" Default="443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">443</Config>
   <Config Name="/etc/pihole/" Target="/etc/pihole/" Default="/mnt/user/appdata/pihole/etc/pihole/" Mode="rw" Description="Container Path: /etc/pihole/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/pihole/etc/pihole/</Config>
   <Config Name="/etc/dnsmasq.d/" Target="/etc/dnsmasq.d/" Default="/mnt/user/appdata/pihole/etc/dnsmasq.d/" Mode="rw" Description="Container Path: /etc/dnsmasq.d/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/pihole/etc/dnsmasq.d/</Config>
-  <Config Name="DNS1" Target="DNS1" Default="10.0.0.3" Mode="" Description="Container Variable: DNS1" Type="Variable" Display="always" Required="false" Mask="false">10.0.0.3</Config>
-  <Config Name="DNS2" Target="DNS2" Default="8.8.8.8" Mode="" Description="Container Variable: DNS2" Type="Variable" Display="always" Required="false" Mask="false">8.8.8.8</Config>
+  <Config Name="DNS1" Target="DNS1" Default="10.0.0.3" Mode="" Description="Container Variable: DNS1" Type="Variable" Display="always" Required="false" Mask="false">8.8.8.8</Config>
+  <Config Name="DNS2" Target="DNS2" Default="8.8.8.8" Mode="" Description="Container Variable: DNS2" Type="Variable" Display="always" Required="false" Mask="false">8.8.4.4</Config>
   <Config Name="WEBPASSWORD" Target="WEBPASSWORD" Default="admin" Mode="" Description="Container Variable: WEBPASSWORD" Type="Variable" Display="always" Required="true" Mask="true">admin</Config>
-  <Config Name="CONDITIONAL_FORWARDING" Target="CONDITIONAL_FORWARDING" Default="true" Mode="" Description="Container Variable: CONDITIONAL_FORWARDING" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
-  <Config Name="CONDITIONAL_FORWARDING_IP" Target="CONDITIONAL_FORWARDING_IP" Default="10.0.0.3" Mode="" Description="Container Variable: CONDITIONAL_FORWARDING_IP" Type="Variable" Display="always" Required="false" Mask="false">10.0.0.3</Config>
-  <Config Name="CONDITIONAL_FORWARDING_DOMAIN" Target="CONDITIONAL_FORWARDING_DOMAIN" Default="local" Mode="" Description="Container Variable: CONDITIONAL_FORWARDING_DOMAIN" Type="Variable" Display="always" Required="false" Mask="false">home.lan</Config>
 </Container>
